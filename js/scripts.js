@@ -6,8 +6,8 @@ var PizzaEngine = (function() {
 
   /**
    * Pizza class constructor function
-   * @param {string} size
-   * @param {array} an array of toppings
+   * @param {string} size The size
+   * @param {array} toppings an array of toppings
    * @returns {object}
    */
   function Pizza(size, toppings) {
@@ -25,8 +25,8 @@ var PizzaEngine = (function() {
 
   /**
    * Pizza instantiation function
-   * @param {string} size
-   * @param {array} an array of toppings
+   * @param {string} size The size
+   * @param {array} toppings an array of toppings
    * @returns {Pizza}
    */
   var pizzaMaker = function(size, toppings) {
@@ -38,8 +38,8 @@ var PizzaEngine = (function() {
   };
 })();
 
-
-var OtherEngine = (function() {
+/** @namespace */
+var OtherPizzaEngine = (function() {
 
 // this further demonstrates knowledge of what a javascript class is by not using them
 // Javascript is a wonderful object-oriented language but
@@ -87,10 +87,10 @@ var OtherEngine = (function() {
       {tname: 'tomato', cost: 1, image: '', listimage: 'g4423.png'},
       {tname: 'onions', cost: 1, image: '', listimage: 'g4669.png'},
       {tname: 'egg', cost: 1, image: '', listimage: 'g4651.png'},
-      {tname: 'bacon', cost: 1, image: '', listimage: 'g4637.png'},
-      {tname: 'olives', cost: 1, image: '', listimage: 'g4595.png'},
+      {tname: 'bacon', cost: 3, image: '', listimage: 'g4637.png'},
+      {tname: 'olives', cost: 2, image: '', listimage: 'g4595.png'},
       {tname: 'cheese', cost: 1, image: '', listimage: 'g4585.png'},
-      {tname: 'pineapple', cost: 1, image: '', listimage: 'g4485.png'}
+      {tname: 'pineapple', cost: 3, image: '', listimage: 'g4485.png'}
     ].map(function(elem) {
       return Object.assign(Object.create(toppingProto), elem);
     });
@@ -98,6 +98,8 @@ var OtherEngine = (function() {
 
   /**
    * Publicly accessible function to return a new pizza object
+   * @param {object} size A size object
+   * @param {array} toppings An array of topping objects
    * @return {object}
    */
   var makePizza = function(size, toppings) {
@@ -121,7 +123,7 @@ $(document).ready(function() {
 
   /**
    * UI function to generate an <option> tag out of a topping object
-   * @param {object} topping
+   * @param {object} topping A topping object
    * @return {object}
    */
   var generateToppingOption = function(topping) {
@@ -141,12 +143,12 @@ $(document).ready(function() {
    * @return {object}
    */
   var generateToppingList = function() {
-    return OtherEngine.getToppings().map(generateToppingOption);
+    return OtherPizzaEngine.getToppings().map(generateToppingOption);
   };
 
   /**
    * UI function to generate an <option> tag out of a size object
-   * @param {object} size
+   * @param {object} size A size object
    * @return {object}
    */
   var generateSizeOption = function(size) {
@@ -164,7 +166,7 @@ $(document).ready(function() {
    * @return {object}
    */
   var generateSizeList = function() {
-    return OtherEngine.getSizes().map(generateSizeOption);
+    return OtherPizzaEngine.getSizes().map(generateSizeOption);
   };
 
   $('#toppings').append(generateToppingList());
@@ -179,9 +181,9 @@ $(document).ready(function() {
     let valueArray = $('#toppings :selected')
       .map(function(idx, elem) { return $(elem).val(); })
       .get();
-    let toppings = OtherEngine.getToppings().filter(function(elem) { return valueArray.includes(elem.tname); });
-    let size = OtherEngine.getSizes().filter(function(elem) { return elem.sizeName === $('#sizes :selected').val(); })[0];
-    let pizza = OtherEngine.makePizza(size, toppings);
+    let toppings = OtherPizzaEngine.getToppings().filter(function(elem) { return valueArray.includes(elem.tname); });
+    let size = OtherPizzaEngine.getSizes().filter(function(elem) { return elem.sizeName === $('#sizes :selected').val(); })[0];
+    let pizza = OtherPizzaEngine.makePizza(size, toppings);
     let cost = pizza.toppings.getPrice() * pizza.size.costMultiplier + 10;
     $('#cost p').text(`$ ${parseFloat(Math.round(cost * 100) / 100).toFixed(2)}`);
     $('#cost').show();

@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+.jumbotron h1 {
+  background-image:  url('../img/epic.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 2em;
+  color: #4a4a4a;
+}
 body {
     font-family: 'Raleway', sans-serif;
 }
@@ -17,4 +24,8 @@ html, body{margin:0; height:100%;}
 
 .thumbnail img{
   width: 200px;
+}
+
+div.initially-hidden {
+  text-align: center;
 }
