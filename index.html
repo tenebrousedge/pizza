@@ -2,28 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
-    <link href="bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
     <script src="bower_components/fabric.js/dist/fabric.js"></script>
+    <script src="bower_components/image-picker/image-picker/image-picker.js"></script>
+    <link href="bower_components/image-picker/image-picker/image-picker.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Raleway" rel="stylesheet">
     <script src="js/scripts.js"></script>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title></title>
+    <title>Epic Pizza</title>
   </head>
   <body>
   <div class="container-fluid">
     <header class="jumbotron"><h1>Epic Pizza</h1></header>
-    <section class="col-md-6"></section>
+    <section class="">
       <form>
       <select id="toppings" multiple="multiple"></select>
-      <select id="size"></select>
+      <select id="sizes"></select>
       <!-- Fleens?! You're not Fleens! Well, whoever you are, -->
       <button type="submit">Make me a Pizza!</button>
       <!-- *Poof!* You're a pizza -->
       </form>
-    <section class="col-md-6"></section>
+    </section>
+    <section class="col-md-6">
+      <div id="cost" class="initially-hidden"><h3>Cost:</h3><p></p></div>
+    </section>
+    <footer><small><a href="http://www.freepik.com/free-vector/ingredients-for-pizza-on-a-white-background_929278.htm">Pizza Icons Designed by Freepik</a></small></footer>
   </div>
   </body>
 </html>

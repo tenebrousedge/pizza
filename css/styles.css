@@ -1,0 +1,20 @@
+.jumbotron {
+  font-family: 'Alfa Slab One', cursive;
+  background-image: url('../img/Pizza-Banner.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+html, body{margin:0; height:100%;}
+
+.initially-hidden {
+  display: none;
+}
+
+.thumbnail img{
+  width: 200px;
+}
