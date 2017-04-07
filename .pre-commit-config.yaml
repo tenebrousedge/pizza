@@ -1,0 +1,8 @@
+-   repo: git://github.com/pre-commit/mirrors-eslint
+    sha: v3.18.0
+    hooks:
+    -   id: eslint
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 5bf6c09bfa1297d3692cadd621ef95f1284e33c0
+    hooks:
+    -   id: trailing-whitespace
